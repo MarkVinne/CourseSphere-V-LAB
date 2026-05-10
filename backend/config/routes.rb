@@ -1,0 +1,13 @@
+Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      post '/register', to: 'auth#register'
+      post '/login',    to: 'auth#login'
+      get  '/me',       to: 'auth#me'
+
+      resources :courses do
+        resources :lessons, only: [:index, :create, :update, :destroy]
+      end
+    end
+  end
+end
