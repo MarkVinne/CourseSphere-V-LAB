@@ -48,6 +48,15 @@ Aplicação web de gestão de cursos online colaborativa, desenvolvida com **Rub
 - Node.js 20+
 - npm
 
+## Rodando com Docker
+
+```bash
+sudo docker compose up --build
+```
+
+- Frontend: http://localhost:5173
+- Backend: http://localhost:3001
+
 ---
 
 ## Rodando o Backend
@@ -153,10 +162,3 @@ projeto v-lab/
 | DELETE | `/api/v1/courses/:id/lessons/:id` | Excluir aula |
 
 ---
-
-## Diferenciais Implementados
-
-- ✅ Stack recomendada: Rails + React
-- ✅ Autenticação JWT com proteção real de rotas
-- ✅ Melhorias de UX/UI: dark mode, banners automáticos, markdown, design responsivo
-- ✅ Commits com mensagens semânticas

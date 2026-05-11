@@ -82,7 +82,6 @@ export default function CourseDetail() {
 
   return (
     <div className="page">
-      {/* ── HEADER ── */}
       <header className="page-header">
         
         <Link to="/dashboard" style={{ color: '#fff', fontSize: '0.9rem' }}>← Voltar</Link>
@@ -100,7 +99,6 @@ export default function CourseDetail() {
         
       </header>
 
-      {/* ── BANNER ── */}
       <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
         <img
           src={bannerUrl}
@@ -121,7 +119,6 @@ export default function CourseDetail() {
 
       <div className="page-content">
 
-        {/* ── STATS ROW ── */}
         <div className="cd-stats-row">
           <div className="cd-stat">
             <span className="cd-stat-icon">📅</span>
@@ -165,7 +162,6 @@ export default function CourseDetail() {
 
         <div className="cd-two-col">
 
-          {/* ── COLUNA ESQUERDA ── */}
           <div style={{ flex: 1, minWidth: 0 }}>
 
             {/* INSTRUTOR */}
@@ -190,7 +186,6 @@ export default function CourseDetail() {
               </div>
             )}
 
-            {/* TURMA */}
             {students.length > 0 && (
               <div className="cd-card">
                 <h3 className="cd-card-title">👥 Turma ({students.length} alunos)</h3>
@@ -207,7 +202,7 @@ export default function CourseDetail() {
                       </div>
                       <span className={`badge ${i % 2 === 0 ? 'published' : 'draft'}`}
                         style={{ marginLeft: 'auto', fontSize: '0.7rem' }}>
-                        {i % 2 === 0 ? 'Ativo' : 'Pendente'}
+                        {i % 2 === 0 ? 'Ativo' : 'Ausente'}
                       </span>
                     </div>
                   ))}
@@ -216,7 +211,6 @@ export default function CourseDetail() {
             )}
           </div>
 
-          {/* ── COLUNA DIREITA — AULAS ── */}
           <div style={{ flex: 2, minWidth: 0 }}>
             <div className="cd-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '8px' }}>
@@ -275,7 +269,6 @@ export default function CourseDetail() {
                 </ul>
               )}
 
-              {/* FORM NOVA AULA */}
               {isCreator && (
               <>
               <hr style={{ margin: '1.25rem 0' }} />
