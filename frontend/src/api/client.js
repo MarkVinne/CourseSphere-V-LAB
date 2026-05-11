@@ -11,7 +11,6 @@ api.interceptors.request.use(config => {
 api.interceptors.response.use(
   res => res,
   err => {
-    // só redireciona se NÃO for a rota de login/registro
     const url = err.config?.url || ''
     const isAuthRoute = url.includes('/login') || url.includes('/register')
 

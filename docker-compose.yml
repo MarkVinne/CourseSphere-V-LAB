@@ -1,0 +1,36 @@
+
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: backend_development
+    ports:
+      - "5433:5432"
+    volumes:
+    - postgres_data:/var/lib/postgresql/data
+  backend:
+    build: ./backend
+    command: bash -c "bundle exec rails db:create db:migrate db:seed && bundle exec rails s -p 3001 -b 0.0.0.0"
+    ports:
+      - "3001:3001"
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/backend_development
+      RAILS_ENV: development
+      SECRET_KEY_BASE: coursesphere_secret_key_base_docker
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
